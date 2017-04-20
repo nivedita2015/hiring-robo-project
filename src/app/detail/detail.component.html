@@ -1,0 +1,16 @@
+<div *ngIf="robo">
+  <h2>{{robo.name}} details!</h2>
+  <div>
+    <label>id: </label>{{robo.robo_id}}
+    <label>name: </label>{{robo.name}}
+    <label>model: </label>{{robo.model}}
+    <label>price: </label>{{robo.price}}
+    <label>avatar: </label>{{robo.avatar}}
+  </div>
+</div>
+<div><ul>
+  <li *ngFor="let review of reviews">
+    <span>{{review.review}}</span>
+    <span>{{review.rating}}</span>
+  </li>
+</ul></div>

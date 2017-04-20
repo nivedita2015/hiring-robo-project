@@ -1,3 +1,13 @@
-<p>
-  search works!
-</p>
+<h1>My Robo Assistants</h1>
+<div class="input-group search-component">
+  <label>Robo Assistant Search</label><input #searchBox>
+  <span class="input-group-btn">
+    <button (click)="sendSearch(searchBox.value); searchBox.value=''">Search</button>
+  </span>
+</div>
+<ul class="searchResults">
+  <li *ngFor="let robo of searchResults" (click)="getRoboDetail(robo)" [class.selected]= "robo === selectedRobo">
+    <span class="badge">{{robo.robo_id}}</span>
+    <span>{{robo.name}}</span>
+  </li>
+</ul>
