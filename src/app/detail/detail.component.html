@@ -1,16 +1,53 @@
-<div *ngIf="robo">
-  <h2>{{robo.name}} details!</h2>
-  <div>
-    <label>id: </label>{{robo.robo_id}}
-    <label>name: </label>{{robo.name}}
-    <label>model: </label>{{robo.model}}
-    <label>price: </label>{{robo.price}}
-    <label>avatar: </label>{{robo.avatar}}
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="../../assets/Robo-mini.png" width="60px" heigh="60px">
+      </a>
+    </div>
+    <h2>Robo Inc</h2>
+  </div>
+</nav>
+<div class="container detail-container col-md-8 col-md-offset-2">
+  <div class="row profile-container" *ngIf="robo">
+    <div class="col-md-6 robo-avatar"><img src="{{robo.avatar}}" alt="Avatar"></div>
+    <div class="col-md-5 robo-details">
+      <h4>Name: {{robo.name}}</h4>
+      <h4>ID: {{robo.robo_id}}</h4>
+      <h4>Model: {{robo.model}}</h4>
+      <h4>Price: {{robo.price | currency:'USD':true:'1.0-0'}}</h4>
+      <h4>Avg Rating: <span *ngFor="let i of avgRating" class="glyphicon glyphicon-star gold-star"></span> {{avgRating?.length}}/5 </h4>
+    </div>
+  </div>
+  <div class="row reviews-list-container">
+    <div class="row">
+      <h1 class="caption col-md-6">Reviews: </h1>
+      <div class="dropdown col-md-3 col-md-offset-3 rating-dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Sort Rating
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a type="button" (click)="sortReviewsType('desc')">High to Low</a></li>
+          <li><a type="button" (click)="sortReviewsType('asc')">Low to High</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="review-container" *ngFor="let review of reviews">
+      <div class="panel panel-default review-detail">
+        <div class="panel-heading row review-panel-heading">
+          <div class="col-md-4"><h3 class="panel-title">Jane Doe</h3></div>
+          <div class="col-md-3 col-md-offset-5 rating">
+            <span *ngFor="let i of review.stars" class="glyphicon glyphicon-star gold-star"></span> {{review.rating}}/5
+          </div>
+        </div>
+        <div class="panel-body">'{{review.review}}'</div>
+      </div>
+    </div>
   </div>
 </div>
-<div><ul>
-  <li *ngFor="let review of reviews">
-    <span>{{review.review}}</span>
-    <span>{{review.rating}}</span>
-  </li>
-</ul></div>
+
+
+
+
+

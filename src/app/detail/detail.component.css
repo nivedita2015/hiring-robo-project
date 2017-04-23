@@ -1,0 +1,66 @@
+.navbar {
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.navbar .navbar-brand {
+  padding: 0;
+  padding-left: 15px;
+}
+
+.detail-container {
+  padding-top: 65px;
+}
+
+.profile-container {
+  margin: 0px 0px 10px 0px;
+  border: solid cornflowerblue;
+  background: repeating-linear-gradient(
+    -55deg,
+    #f7f7f7,
+    #f7f7f7 5px,
+    #ffffff 5px,
+    #ffffff 8px
+  );
+}
+
+.robo-details {
+  margin-top: 40px;
+  background-color: white;
+  border: solid cornflowerblue ;
+
+  border-top: 20px solid cornflowerblue;
+}
+
+.reviews-list-container {
+  margin: 0;
+}
+
+.review-container {
+  padding: 0 15px 0 15px;
+  border: solid cornflowerblue ;
+}
+
+.rating-dropdown {
+  margin-top: 15px;
+}
+
+.panel {
+  background-color: #ffffff;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.review-panel-heading{
+  background-color: cornflowerblue;
+  border-radius: 0;
+  color:white;
+}
+
+.review-detail {
+  margin-bottom: 0;
+}
+
+.gold-star {
+  color: gold;
+}

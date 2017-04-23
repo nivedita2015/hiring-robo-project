@@ -87,12 +87,12 @@ The robo-assistant service uses Angular's [http](https://angular.io/docs/ts/late
     + rating
     + price **(In USD format (no cents), eg `$1,482,483`)**
 
-### F3. Complete missing parts of `detail.component.ts`
-In `src/app/detail/detail.component.ts`, complete the options object in the decorator to include `detail.component.html` as the template, and `detail.component.css` as the style.
+### F3. Complete missing parts of `landing.component.ts`
+In `src/app/detail/landing.component.ts`, complete the options object in the decorator to include `detail.component.html` as the template, and `detail.component.css` as the style.
 
 ### F4. Add `DetailComponent` to the routing in `app.module.ts`
 
-`DetailComponent` is exported in `src/app/detail/detail.component.ts`, but not yet included in the router. So we have no access to it!
+`DetailComponent` is exported in `src/app/detail/landing.component.ts`, but not yet included in the router. So we have no access to it!
 
 + Add a route `/detail/:robo_id` to `app.module.ts`, using the `DetailComponent` for loading.
 

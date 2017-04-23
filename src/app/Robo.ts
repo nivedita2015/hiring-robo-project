@@ -10,6 +10,7 @@ export class Robo {
 export class ReviewObj {
 rating: number;
 review: string;
+stars: number[];
 }
 
 export class Reviews {

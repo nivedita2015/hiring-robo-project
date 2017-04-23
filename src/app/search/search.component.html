@@ -1,13 +1,26 @@
-<h1>My Robo Assistants</h1>
-<div class="input-group search-component">
-  <label>Robo Assistant Search</label><input #searchBox>
-  <span class="input-group-btn">
-    <button (click)="sendSearch(searchBox.value); searchBox.value=''">Search</button>
-  </span>
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="welcome-message">Welcome to<img src="../../assets/Robo.png" alt="Robo Inc" width="200px" height="200px">Inc! </h1>
+    <p>If you need a Robot assistant, we have it for you! Take a look at our premium models! </p>
+    <div class="input-group input-group-lg">
+      <input #searchBox [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search for a Robo Assistant..." (keyup.enter)="sendSearch(searchBox.value); searchBox.value=''">
+      <span class="input-group-btn">
+          <button class="btn btn-success" type="button" (click)="sendSearch(); searchBox.value=''">Go!</button>
+          <button class="btn btn-warning" type="button" (click)="getRobos()">View All</button>
+        </span>
+    </div>
+  </div>
 </div>
-<ul class="searchResults">
-  <li *ngFor="let robo of searchResults" (click)="getRoboDetail(robo)" [class.selected]= "robo === selectedRobo">
-    <span class="badge">{{robo.robo_id}}</span>
-    <span>{{robo.name}}</span>
-  </li>
-</ul>
+<div class="container robo-list">
+  <div class="row search-results">
+    <div class="col-sm-6 col-md-3" *ngFor="let robo of searchResults" type="button" (click)="getRoboDetail(robo)">
+      <div class="thumbnail robo-avatar">
+        <img src="{{robo.avatar}}" alt="Avatar" width="90px" height="90px">
+        <div class="caption robo-caption">
+          <h5 class="robo-name">{{robo.name}} <small class="robo-model">{{robo.model}}</small></h5>
+          <h5 class="robo-price">{{robo.price | currency:'USD':true:'1.0-0'}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

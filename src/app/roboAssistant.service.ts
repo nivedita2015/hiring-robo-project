@@ -31,7 +31,7 @@ export class RoboAssistantService {
       });
   }
 
-  // API call to get initial list of all Robos on landing page
+  // API call to get list of all Robos on landing page
   getAllRoboAssistants(): Promise<Robo[]> {
     return this.http.get(this.robosUrl + '/bots', {headers : this.headers})
       .toPromise()
