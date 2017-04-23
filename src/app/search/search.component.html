@@ -5,15 +5,21 @@
     <div class="input-group input-group-lg">
       <input #searchBox [(ngModel)]="searchText" type="text" class="form-control" placeholder="Search for a Robo Assistant..." (keyup.enter)="sendSearch(searchBox.value); searchBox.value=''">
       <span class="input-group-btn">
-          <button class="btn btn-success" type="button" (click)="sendSearch(); searchBox.value=''">Go!</button>
+          <button class="btn btn-success" type="button" (click)="sendSearch(); searchBox.value=''">Search</button>
           <button class="btn btn-warning" type="button" (click)="getRobos()">View All</button>
         </span>
     </div>
   </div>
 </div>
+<div class="display-results" *ngIf="displaySearchText">
+  {{displaySearchText}}
+</div>
 <div class="container robo-list">
+  <div class="row">
+    <span class="glyphicon glyphicon-th" aria-hidden="true" type="button" (click)="reduceCols($event)"></span>
+  </div>
   <div class="row search-results">
-    <div class="col-sm-6 col-md-3" *ngFor="let robo of searchResults" type="button" (click)="getRoboDetail(robo)">
+    <div #roboSearch class="col-md-3" *ngFor="let robo of searchResults" type="button" (click)="getRoboDetail(robo)">
       <div class="thumbnail robo-avatar">
         <img src="{{robo.avatar}}" alt="Avatar" width="90px" height="90px">
         <div class="caption robo-caption">

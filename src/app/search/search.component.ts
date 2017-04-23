@@ -10,15 +10,21 @@ import { Robo } from '../Robo';
 
 })
 
+// @ViewChild('roboSearch') roboSearch;
+
 export class SearchComponent implements OnInit {
   selectedRobo: Robo;
   searchResults: Robo[];
   searchText = '';
+  displaySearchText = '';
   constructor(private roboAssistantService: RoboAssistantService, private router: Router, private route: ActivatedRoute) { }
   getRobos(): void {
     this.roboAssistantService
       .getAllRoboAssistants()
-      .then(searchResults => this.searchResults = searchResults);
+      .then(searchResults => {
+        this.searchResults = searchResults;
+        this.displaySearchText = ' Displaying all Robot Assistants.';
+      });
   }
   ngOnInit(): void {
   }
@@ -27,6 +33,11 @@ export class SearchComponent implements OnInit {
       .getFilteredRoboAssistants(this.searchText)
       .then(searchResults => {
         this.searchResults = searchResults;
+        if (searchResults.length === 0) {
+          this.displaySearchText = 'No Results found.';
+        } else {
+          this.displaySearchText = 'Found ' + searchResults.length + ' results for ' + this.searchText;
+        }
         this.searchText = '';
       });
   }
